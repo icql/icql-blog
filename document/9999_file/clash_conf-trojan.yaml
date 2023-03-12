@@ -12,21 +12,21 @@ rule-providers:
   icql-proxy:
     type: http
     behavior: domain
-    url: "https://raw.githubusercontent.com/icql/icql/main/document/9999_file/clash_rule-icql-proxy.txt"
+    url: "https://icql.work/document/9999_file/clash_rule-icql-proxy.txt"
     path: ./ruleset/icql-proxy.yaml
     interval: 86400
 
   icql-direct:
     type: http
     behavior: domain
-    url: "https://raw.githubusercontent.com/icql/icql/main/document/9999_file/clash_rule-icql-direct.txt"
+    url: "https://icql.work/document/9999_file/clash_rule-icql-direct.txt"
     path: ./ruleset/icql-direct.yaml
     interval: 86400
 
   icql-reject:
     type: http
     behavior: domain
-    url: "https://raw.githubusercontent.com/icql/icql/main/document/9999_file/clash_rule-icql-reject.txt"
+    url: "https://icql.work/document/9999_file/clash_rule-icql-reject.txt"
     path: ./ruleset/icql-reject.yaml
     interval: 86400
 
@@ -160,3 +160,119 @@ rules:
 #  - GEOIP,LAN,DIRECT
 #  - GEOIP,CN,DIRECT
 #  - MATCH,PROXY
+
+http:
+  mitm:
+    - 'app.bilibili.com'
+    - 'grpc.biliapi.net'
+    - 'tiebac.baidu.com'
+    - "api.weibo.cn"
+    - "mapi.weibo.com"
+    - "*.uve.weibo.com"
+  script:
+    #b站
+    - match: ^https:\/\/app\.bilibili\.com\/x\/(v2\/(splash\/(list|show)|feed\/index\?)|resource\/show\/tab\/v2)
+      name: smile_bili_json
+      type: response
+      require-body: true
+      timeout: 10
+    - match: ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.(view\.v1\.View\/View|dynamic\.v2\.Dynamic\/DynAll|playurl\.v1\.PlayURL\/PlayView)$
+      name: smile_bili_proto
+      type: response
+      require-body: true
+      binary-mode: true
+      timeout: 10
+    #贴吧
+    - match: ^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/(c\/(s\/sync|f\/(frs\/(page|threadlist|generalTabList)|pb\/(pic)?page|excellent\/personalized))$|tiebaads\/commonbatch\?)
+      name: smile_tieba_json
+      type: response
+      require-body: true
+      timeout: 10
+    - match: ^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)\?cmd
+      name: smile_tieba_proto
+      type: response
+      require-body: true
+      binary-mode: true
+      timeout: 10
+    #微博
+    - match: ^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua)
+      name: wb
+      type: response
+      require-body: true
+      timeout: 10
+    - match: ^https?://m?api\.weibo\.c(n|om)/2/(statuses/(unread|extend|positives/get|(friends|video)(/|_)(mix)?timeline)|stories/(video_stream|home_list)|(groups|fangle)/timeline|profile/statuses|comments/build_comments|photo/recommend_list|service/picfeed|searchall|cardlist|page|!/photos/pic_recommend_status|video/tiny_stream_video_list|photo/info)
+      name: wb2
+      type: response
+      require-body: true
+      timeout: 10
+    - match: ^https://(api\.weibo\.cn|mapi\.weibo\.com)/2/comments/build_comments\?
+      name: weibo_comment
+      type: response
+      require-body: true
+      timeout: 10
+    - match: ^https://(api\.weibo\.cn|mapi\.weibo\.com)/2/(statuses/unread_hot_timeline|statuses/friends/timeline|video/tiny_stream_video_list|statuses/unread_friends_timeline)\?
+      name: weibo_statuses
+      type: response
+      require-body: true
+      timeout: 10
+    - match: ^https://(api\.weibo\.cn|mapi\.weibo\.com)/2/(searchall|page)\?
+      name: weibo_cardlist
+      type: response
+      require-body: true
+      timeout: 10
+    - match: ^https://(api\.weibo\.cn|mapi\.weibo\.com)/2/cardlist\?
+      name: weibo_cardlist_discover
+      type: response
+      require-body: true
+      timeout: 10
+    - match: ^https://(api\.weibo\.cn|mapi\.weibo\.com)/2/statuses/extend\?
+      name: weibo_statuses_extend
+      type: response
+      require-body: true
+      timeout: 10
+    - match: ^https://sdkapp\.uve\.weibo\.com/interface/sdk/sdkad\.php$
+      name: weibo_sdkad
+      type: response
+      require-body: true
+      timeout: 10
+
+script-providers:
+  #b站
+  smile_bili_json:
+    url: https://raw.githubusercontent.com/app2smile/rules/master/js/bilibili-json.js
+    interval: 86400
+  smile_bili_proto:
+    url: https://raw.githubusercontent.com/app2smile/rules/master/js/bilibili-proto.js
+    interval: 86400
+  #贴吧
+  smile_tieba_json:
+    url: https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js
+    interval: 86400
+  smile_tieba_proto:
+    url: https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-proto.js
+    interval: 86400
+  #微博
+  wb:
+    url: https://raw.githubusercontent.com/yichahucha/surge/master/wb_launch.js
+    interval: 86400
+  wb2:
+    url: https://raw.githubusercontent.com/yichahucha/surge/master/wb_ad.js
+    interval: 86400
+  weibo_comment:
+    url: https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/weibo/weibo_comment.js
+    interval: 86400
+  weibo_statuses:
+    url: https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/weibo/weibo_statuses.js
+    interval: 86400
+  weibo_cardlist:
+    url: https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/weibo/weibo_cardlist.js
+    interval: 86400
+  weibo_cardlist_discover:
+    url: https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/weibo/weibo_cardlist_discover.js
+    interval: 86400
+  weibo_statuses_extend:
+    url: https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/weibo/weibo_statuses_extend.js
+    interval: 86400
+  weibo_sdkad:
+    url: https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/weibo/weibo_sdkad.js
+    interval: 86400
