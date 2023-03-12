@@ -1,0 +1,4 @@
+payload:
+  - '*.openai.com'
+  - '*.kasmweb.com'
+  - '*.huobi.com'
