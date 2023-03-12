@@ -1,2 +1,2 @@
 payload:
-  - '+.qq.com'
+  - 'www.qq.com'
