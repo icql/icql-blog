@@ -1,2 +1,3 @@
 payload:
-  - 'www.qq.com'
+  - 'yacd.haishan.me' #clashweb管理
+  - 'clash.razord.top'
