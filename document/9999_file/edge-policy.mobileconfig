@@ -33,6 +33,9 @@
             https://learn.microsoft.com/zh-cn/DeployEdge/microsoft-edge-policies
             -->
             
+            <!--中心边栏-->
+            <key>HubsSidebarEnabled</key>
+            <false/>
             <!--在地址栏中启用 Microsoft 必应搜索建议-->
 			<key>AddressBarMicrosoftSearchInBingProviderEnabled</key>
 			<false/>
@@ -60,9 +63,6 @@
             <!--发送有关浏览器使用情况的必需和可选诊断数据-->
 			<key>DiagnosticData</key>
 			<integer>0</integer>
-            <!--中心边栏-->
-			<key>HubsSidebarEnabled</key>
-			<false/>
             <!--允许网站查询可用的付款方式-->
 			<key>PaymentMethodQueryEnabled</key>
 			<false/>
