@@ -1,96 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>PayloadDisplayName</key>
-	<string>edge-policy</string>
-	<key>PayloadIdentifier</key>
-	<string>com.microsoft.Edge.policy</string>
-	<key>PayloadType</key>
-	<string>Configuration</string>
-	<key>PayloadUUID</key>
-	<string>FFE65C14-4C4C-4768-BA79-151A7C53AA26</string>
-	<key>PayloadVersion</key>
-	<integer>1</integer>
-	<key>TargetDeviceType</key>
-	<integer>5</integer>
-	<key>PayloadContent</key>
-	<array>
-		<dict>
-			<key>PayloadDisplayName</key>
-			<string>Microsoft Edge</string>
-			<key>PayloadIdentifier</key>
-			<string>com.microsoft.Edge.2874DCC0-CCFC-4E5A-BC55-2017206D4BB2</string>
-			<key>PayloadType</key>
-			<string>com.microsoft.Edge</string>
-			<key>PayloadUUID</key>
-			<string>D6B829F1-D855-4053-A4D7-5F9AD76B539F</string>
-			<key>PayloadVersion</key>
-			<integer>1</integer>
-            
-            <!--
-            策略值参考文档
-            https://learn.microsoft.com/zh-cn/DeployEdge/microsoft-edge-policies
-            -->
-            
-            <!--中心边栏-->
-            <key>HubsSidebarEnabled</key>
-            <false/>
-            <!--在地址栏中启用 Microsoft 必应搜索建议-->
-			<key>AddressBarMicrosoftSearchInBingProviderEnabled</key>
-			<false/>
-            <!--启用付款方式自动填充-->
-            <key>AutofillCreditCardEnabled</key>
-			<false/>
-            <!--允许网站媒体自动播放-->
-			<key>AutoplayAllowed</key>
-			<false/>
-            <!--阻止必应搜索结果中的所有广告-->
-			<key>BingAdsSuppression</key>
-			<true/>
-            <!--内置 DNS 客户端-->
-            <key>BuiltInDnsClientEnabled</key>
-			<false/>
-            <!--配置 Do Not Track-->
-			<key>ConfigureDoNotTrack</key>
-			<true/>
-            <!--配置共享体验-->
-			<key>ConfigureShare</key>
-			<integer>1</integer>
-            <!-- Microsoft Edge 设为默认浏览器-->
-			<key>DefaultBrowserSettingEnabled</key>
-			<false/>
-            <!--发送有关浏览器使用情况的必需和可选诊断数据-->
-			<key>DiagnosticData</key>
-			<integer>0</integer>
-            <!--允许网站查询可用的付款方式-->
-			<key>PaymentMethodQueryEnabled</key>
-			<false/>
-            <!--允许隐私个性话推荐-->
-			<key>PersonalizationReportingEnabled</key>
-			<false/>
-            <!--完整选项卡促销内容-->
-			<key>PromotionalTabsEnabled</key>
-			<false/>
-            <!--展示 Microsoft Rewards体验-->
-            <key>ShowMicrosoftRewards</key>
-			<false/>
-            <!--允许使用来自 Microsoft Edge 的功能建议和浏览器协助通知-->
-			<key>ShowRecommendationsEnabled</key>
-			<false/>
-            <!--阻止跟踪用户的 Web 浏览活动-->
-			<key>TrackingPrevention</key>
-			<integer>2</integer>
-            <!--允许用户反馈-->
-			<key>UserFeedbackAllowed</key>
-			<false/>
-            <!--允许用户从 HTTPS 警告页面继续操作-->
-            <key>SSLErrorOverrideAllowed</key>
-            <true/>
-            <!--启用“集锦”功能-->
-            <key>EdgeCollectionsEnabled</key>
-            <false/>
-		</dict>
-	</array>
-</dict>
+    <dict>
+        <key>PayloadDisplayName</key>
+        <string>edge-policy</string>
+        <key>PayloadIdentifier</key>
+        <string>com.microsoft.Edge.policy</string>
+        <key>PayloadType</key>
+        <string>Configuration</string>
+        <key>PayloadUUID</key>
+        <string>FFE65C14-4C4C-4768-BA79-151A7C53AA26</string>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+        <key>TargetDeviceType</key>
+        <integer>5</integer>
+        <key>PayloadContent</key>
+        <array>
+            <dict>
+                <key>PayloadDisplayName</key>
+                <string>Microsoft Edge</string>
+                <key>PayloadIdentifier</key>
+                <string>com.microsoft.Edge.2874DCC0-CCFC-4E5A-BC55-2017206D4BB2</string>
+                <key>PayloadType</key>
+                <string>com.microsoft.Edge</string>
+                <key>PayloadUUID</key>
+                <string>D6B829F1-D855-4053-A4D7-5F9AD76B539F</string>
+                <key>PayloadVersion</key>
+                <integer>1</integer>
+
+                <!--
+                策略值参考文档
+                https://learn.microsoft.com/zh-cn/DeployEdge/microsoft-edge-policies
+                -->
+
+                <!--中心边栏-->
+                <key>HubsSidebarEnabled</key>
+                <false/>
+                <!--在地址栏中启用 Microsoft 必应搜索建议-->
+                <key>AddressBarMicrosoftSearchInBingProviderEnabled</key>
+                <false/>
+                <!--启用付款方式自动填充-->
+                <key>AutofillCreditCardEnabled</key>
+                <false/>
+                <!--允许网站媒体自动播放-->
+                <key>AutoplayAllowed</key>
+                <false/>
+                <!--阻止必应搜索结果中的所有广告-->
+                <key>BingAdsSuppression</key>
+                <true/>
+                <!--内置 DNS 客户端-->
+                <key>BuiltInDnsClientEnabled</key>
+                <false/>
+                <!--配置 Do Not Track-->
+                <key>ConfigureDoNotTrack</key>
+                <true/>
+                <!--配置共享体验-->
+                <key>ConfigureShare</key>
+                <integer>1</integer>
+                <!-- Microsoft Edge 设为默认浏览器-->
+                <key>DefaultBrowserSettingEnabled</key>
+                <false/>
+                <!--发送有关浏览器使用情况的必需和可选诊断数据-->
+                <key>DiagnosticData</key>
+                <integer>0</integer>
+                <!--允许网站查询可用的付款方式-->
+                <key>PaymentMethodQueryEnabled</key>
+                <false/>
+                <!--允许隐私个性话推荐-->
+                <key>PersonalizationReportingEnabled</key>
+                <false/>
+                <!--完整选项卡促销内容-->
+                <key>PromotionalTabsEnabled</key>
+                <false/>
+                <!--展示 Microsoft Rewards体验-->
+                <key>ShowMicrosoftRewards</key>
+                <false/>
+                <!--允许使用来自 Microsoft Edge 的功能建议和浏览器协助通知-->
+                <key>ShowRecommendationsEnabled</key>
+                <false/>
+                <!--阻止跟踪用户的 Web 浏览活动-->
+                <key>TrackingPrevention</key>
+                <integer>2</integer>
+                <!--允许用户反馈-->
+                <key>UserFeedbackAllowed</key>
+                <false/>
+                <!--允许用户从 HTTPS 警告页面继续操作-->
+                <key>SSLErrorOverrideAllowed</key>
+                <true/>
+                <!--启用“集锦”功能-->
+                <key>EdgeCollectionsEnabled</key>
+                <false/>
+            </dict>
+        </array>
+    </dict>
 </plist>
