@@ -26,6 +26,7 @@ date: 2019-05-30 00:00:00
 ### 4）字符串类型
 * varchar 可变字符串
 * char 定长字符串
+
 ``` bash
 #存储字节数
 #varchr(10)变长字段且允许NULL    =  10 * ( character set：utf8=3,gbk=2,latin1=1)+1(NULL)+2(变长字段)
