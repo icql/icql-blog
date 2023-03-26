@@ -2,3 +2,4 @@ payload:
   - '*.openai.com'
   - '*.kasmweb.com'
   - '*.huobi.com'
+  - '*.bing.com'
