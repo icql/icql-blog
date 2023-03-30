@@ -70,6 +70,5 @@ public final class String
     implements java.io.Serializable, Comparable<String>, CharSequence {
     //保存的数据
     private final char value[];
-
 }
 ```

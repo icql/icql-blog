@@ -6,13 +6,23 @@ date: 2018-10-29 00:00:00
 * 偶对象保存的最大父接口
 * 以下源码基于jdk1.8
 
+``` 
+TreeMap
+HashMap
+HashTable
+LinkedHashMap
+ConcurrentHashMap
+```
+
 ## HashMap
 
 HashMap的线程不安全：
+```
 >（1）1.7
 >put时采用链表头插法，所以扩容时会链表会反转一次，并发插入时可能导致死循环
+```
 
-``` java
+```
 //例如：1->2
 //扩容
 //从头到尾遍历，每次都是头插法
@@ -699,4 +709,4 @@ protected void rehash() {
 <hr/>
 
 ## ConcurrentHashMap
-详见 jc_并发容器篇
+详见 并发容器篇
