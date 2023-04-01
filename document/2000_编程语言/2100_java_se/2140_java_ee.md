@@ -3,8 +3,6 @@ title: java_ee
 date: 2018-10-25 00:00:00
 ---
 
-哈哈，待重新学习整理
-
 ## java ee 核心设计模式
 * web浏览器 —— Servlet控制层（不需要业务逻辑） —— jsp页面 —— html doc —— web浏览器
 * web浏览器 —— Servlet控制层（需要业务逻辑） —— JavaBean（简单java类）、ejb、数据库 —— jsp页面 —— html doc —— web浏览器
@@ -108,32 +106,40 @@ public class TestDemo {
 ```
 
 ## tomcat
-	* 配置
-		```java
-		//环境变量
-		Path：加入 tomcat/bin
-		Using CATALINA_BASE:   "D:\apache-tomcat-7.0.52"
-		Using CATALINA_HOME:   "D:\apache-tomcat-7.0.52"
-		Using CATALINA_TMPDIR: "D:\apache-tomcat-7.0.52\temp"
-		Using JAVA_HOME:       "C:\Program Files\Java\jdk1.8.0_121"
-		
-		//修改默认端口号 conf/server.xml文件中，修改 8080
-		<Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443">
 
-		//web应用配置 conf/server.xml文件中 Server-Service-Engine-Host节点下加入
-						<Context path="/test" docBase='C:\Users\a6924.GOLDDRAGON.COM\Desktop\test' />
-					</Host>
-				</Engine>
-			</Service>
-		</Server>
-		```
-	* http 状态码
-		* 2xx 请求成功
-		* 3xx 重定向
-		* 4xx （403禁止，404找不到指定资源）
-		* 5xx （服务器中出现的错误，500服务器内部错误）
+配置
+
+```
+//环境变量
+Path：加入 tomcat/bin
+Using CATALINA_BASE:   "D:\apache-tomcat-7.0.52"
+Using CATALINA_HOME:   "D:\apache-tomcat-7.0.52"
+Using CATALINA_TMPDIR: "D:\apache-tomcat-7.0.52\temp"
+Using JAVA_HOME:       "C:\Program Files\Java\jdk1.8.0_121"
+
+//修改默认端口号 conf/server.xml文件中，修改 8080
+<Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443">
+
+//web应用配置 conf/server.xml文件中 Server-Service-Engine-Host节点下加入
+                <Context path="/test" docBase='C:\Users\a6924.GOLDDRAGON.COM\Desktop\test' />
+            </Host>
+        </Engine>
+    </Service>
+</Server>
+```
+
+http 状态码
+
+```
+* 2xx 请求成功
+* 3xx 重定向
+* 4xx （403禁止，404找不到指定资源）
+* 5xx （服务器中出现的错误，500服务器内部错误）
+```
+		
 
 ## jsp
+
 	* 1.jsp语法
 		* 注释（html注释<!-- -->，jsp注释<%-- --%>，java注释）
 		* Scriptlet
