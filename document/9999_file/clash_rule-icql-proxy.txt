@@ -3,3 +3,4 @@ payload:
   - '*.kasmweb.com'
   - '*.huobi.com'
   - '*.raycast.com'
+  - '*.bing.com'
