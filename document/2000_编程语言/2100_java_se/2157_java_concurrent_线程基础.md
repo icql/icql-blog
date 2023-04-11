@@ -30,9 +30,9 @@ date: 2020-05-11 00:00:00
 **java线程状态：** java.lang.Thread.State，共6种状态
 >**（1）初始状态-NEW：** 线程被创建，但没有调用start()
 >**（2）运行状态-RUNNABLE：** 将操作系统中的就绪和运行统称为运行态，调用了start方法后的状态
->**（3）阻塞状态-BLOCKED：** 线程阻塞于锁（synchronized）
->**（4）等待状态-WAITING：** 线程进入等待状态，需要等待其他线程做出（通知或中断）
->**（5）超时等待状态-TIME_WAITING：** 该状态不同于WAITING，它可以在指定时间自行返回
+>**（3）阻塞状态-BLOCKED：** 线程阻塞于锁（synchronized），被动的
+>**（4）等待状态-WAITING：** 线程进入等待状态，需要等待其他线程做出（通知或中断），主动的
+>**（5）超时等待状态-TIME_WAITING：** 该状态不同于WAITING，它可以在指定时间自行返回，主动的
 >**（6）终止状态-TERMINATED：** 表示当前线程已经执行完毕
 
 ![java线程状态图](../../../resource/jc_线程基础_java线程状态图.png)
@@ -376,9 +376,11 @@ private void resize() {
 ### 3）ThreadLocalMap的key=ThreadLocal为什么使用弱引用包装？
 
 弱引用对象：在没有强引用的时候，gc时会直接被回收
+
+```
 引用链关系：Thread -> ThreadLocalMap -> ThreadLocalMap.Entry[] -> referent（ThreadLocal）
 
-某些场景下会导致内存泄漏，所以使用完一定要调用 remove 方法
+
 >假设一个场景：tomcat服务器 + 线程池处理请求
 >
 >（1）ThreadLocal没有使用弱引用
@@ -397,10 +399,9 @@ private void resize() {
 >gc时就会回收ThreadLocal变量，
 >这个线程的ThreadLocalMap就会出现key为null的Entry元素，
 >当别的请求进来再次使用这个线程，
->再次ThreadLocal.set时，
+>再次ThreadLocal.set/get/remove访问到key=null时，
 >里面会有逻辑清除key为null的Entry元素
 
-``` java
 static class Entry extends WeakReference<ThreadLocal<?>> {
     //当前 ThreadLocal 关联的值
     Object value;
@@ -410,6 +411,13 @@ static class Entry extends WeakReference<ThreadLocal<?>> {
         value = v;
     }
 }
+
+
+所以，使用弱引用是为了尽量避免使用不当造成内存泄露
+但如果ThreadLocal变量的其他强引用都不存在了
+之后一直没有调用set/get/remove访问到key时
+还是会造成内存泄露
+
 ```
 
 <br/>

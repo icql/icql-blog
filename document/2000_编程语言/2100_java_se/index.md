@@ -15,12 +15,12 @@
 
 ## java concurrent
 
-* [2151_java_concurrent_内存模型](2151_java_concurrent_内存模型)
+* [2151_java_concurrent_内存模型](2151_java_concurrent_并发基础)
 * [2152_java_concurrent_并发关键字](2152_java_concurrent_并发关键字)
 * [2153_java_concurrent_原子操作](2153_java_concurrent_原子操作)
-* [2154_java_concurrent_线程基础](2154_java_concurrent_线程基础)
-* [2155_java_concurrent_并发锁](2155_java_concurrent_并发锁)
+* [2154_java_concurrent_并发锁](2154_java_concurrent_并发锁)
+* [2155_java_concurrent_并发容器](2155_java_concurrent_并发容器)
 * [2156_java_concurrent_原子操作类](2156_java_concurrent_原子操作类)
-* [2157_java_concurrent_并发容器](2157_java_concurrent_并发容器)
+* [2157_java_concurrent_线程基础](2157_java_concurrent_线程基础)
 * [2158_java_concurrent_线程池](2158_java_concurrent_线程池)
 * [2159_java_concurrent_并发工具类](2159_java_concurrent_并发工具类)

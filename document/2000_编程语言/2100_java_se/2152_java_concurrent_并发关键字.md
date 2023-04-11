@@ -7,13 +7,17 @@ date: 2020-04-15 00:00:00
 
 ### 1）作用
 如果一个字段被声明为 volatile 
+```
 1）可见性：java内存模型会确保一个线程修改 **这个变量的值** 会对其他线程立即可见
 2）有序性：禁止指令重排序
 3）原子性：jmm内存模型规定，变量的load和store操作本身就是原子的
+```
 
 **注意：**
+```
 >（1）基本类型：指的是值，修改值以后其他线程会立即可见
 >（2）引用类型：指的是地址，修改地址后其他线程会立即可见，修改这个变量的字段不会对其他线程立即可见
+```
 
 ```java
 //验证volatile引用类型
@@ -81,13 +85,13 @@ X86架构处理器使用lock前缀的cpu指令实现内存屏障（volatile）
 
 上图的源码中有体现，1）作用 中验证volatile引用类型也有体现
 
-具体查看 **jc_原子操作篇**
+![volatile](../../../resource/jc_原子操作_volatile源码.png)
 
 
 ### 3）volatile缓存行填充
 伪共享问题：
 >缓存系统中是以缓存行（cache line）为单位存储的
->一般的cpu缓存行为64kb
+>一般的cpu缓存行为64b
 >当多线程修改互相独立的变量时，如果这些变量共享同一个缓存行
 >就会无意中影响彼此的性能
 
@@ -118,7 +122,7 @@ class RhsPadding extends Value{
 ```java
 //jdk8
 //可以直接使用注解@sun.misc.Contended，使各个变量在Cache line中分隔开
-//同时jvm需要添加参数-XX:-RestrictContended来关闭对此注解的限制
+//同时jvm需要添加参数-XX:-RestrictContended 来关闭对此注解的限制
 @Contended
 public final static class FillLong { 
     public volatile long value = 0L;

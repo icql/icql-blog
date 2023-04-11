@@ -848,11 +848,12 @@ LinkedBlockingDeque：//一个由链表结构组成的 双向阻塞 队列
 
 RejectedExecutionHandler 实现类，ThreadPoolExecutor 内部提供了 4 种
 
+```
 >**（1）AbortPolicy：** 直接抛出异常
 >**（2）CallerRunsPolicy：** 只用调用者所在线程来运行任务
 >**（3）DiscardOldestPolicy：** 丢弃队列里最近的一个任务，并执行当前任务
 >**（4）DiscardPolicy：** 不处理，丢弃掉
-
+```
 
 ### 2）提交任务
 ThreadPoolExecutor 提供了 2 种提交任务的方法，execute()和 submit()

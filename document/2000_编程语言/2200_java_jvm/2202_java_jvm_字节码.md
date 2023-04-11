@@ -344,10 +344,13 @@ double（CONSTANT_Double_info）
 ### 6）static final 常量理解
 
 static final 修饰的 **基本类型和String** 9种类型字段，并且后面的赋值是常量（字面量）
+
+```
 > static final int MAX = 100;  常量
 > static final int RANDOM = new Random().nextInt();  非常量
 > static final String STR_0 = "str";  常量
 > static final String STR_1 = new String("str");  非常量
+```
 
 在编译期就会将 **常量的字面量 编译到 使用了此常量的类的相关字节码中替代原来的引用**
 

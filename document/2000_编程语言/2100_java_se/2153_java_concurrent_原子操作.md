@@ -53,10 +53,9 @@ CAS操作包含三个操作数 —— 内存位置（V）、预期原值（A）�
 <hr/>
 
 ## 原子操作-jvm实现
-jvm在cpu实现原子操作的基础上，使用 **volatile** 和 **cas（Atomic::cmpxchg）** 实现原子操作
+jvm在cpu实现原子操作的基础上，使用 **cas（Atomic::cmpxchg）** 实现原子操作
 
-![volatile](../../../resource/jc_原子操作_volatile源码.png)
 ![atomic cmpxchg](../../../resource/jc_原子操作_cas源码.webp)
 根据jvm源码和上面部分可以得知：
 如果是多处理器， **lock add** 和 **lock cmpxchg** 这两组指令都是锁总线的
-所以jvm中 volatile 和 cas（Atomic::cmpxchg）都是基于锁总线的
+所以jvm中  和 cas（Atomic::cmpxchg）都是基于锁总线的

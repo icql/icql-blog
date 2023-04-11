@@ -12,6 +12,7 @@ java.util.concurrent.ConcurrentHashMap 高性能、线程安全的Map
 ![ConcurrentHashMap结构](../../../resource/jc_并发容器_ConcurrentHashMap结构.png)
 
 和 HashMap 结构很相似，与 HashMap 比较：
+```
 > **（1）相同：**
 > 数组+链表结构几乎相同，底层对数据结构操作思路是一样的
 >
@@ -25,6 +26,8 @@ java.util.concurrent.ConcurrentHashMap 高性能、线程安全的Map
 > （2.2）ConcurrentHashMap新增了ForwardingNode （转移）节点
 > 用来保证扩容时的线程安全
 > 而HashMap只有数组 + 链表 + 红黑树
+```
+
 
 ### 2）put方法
 
