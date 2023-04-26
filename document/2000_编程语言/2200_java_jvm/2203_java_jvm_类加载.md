@@ -768,13 +768,14 @@ Klass* Dictionary::find(int index, unsigned int hash, Symbol* name,
 
 ### 1）SPI（Service Provider Interface 服务提供者接口）
 
+```
 > java核心库提供了各种SPI（例如JDBC相关接口）
 > 约定：当服务的提供者提供了服务接口的一种实现之后
 >       在jar包的 META-INF/services/ 目录里创建一个以服务接口命名的文件（具体的实现类）
 >       然后jdk的SPI接口在加载类初始化时
 >       会使用 java.util.ServiceLoader 这个工具类去扫描所有jar包 META-INF/services 目录
 >       默认通过 **线程上下文类加载器** 去加载加载实现类
-
+```
 
 ### 2）TCCL（Thread Context ClassLoader 线程上下文类加载器）
 

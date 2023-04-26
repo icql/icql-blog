@@ -10,3 +10,4 @@
 * [9504_正则表达式](9504_正则表达式)
 * [9601_csharp归档](9601_csharp归档)
 * [9602_html_css_js归档](9602_html_css_js归档)
+* [resume_202304.pdf](../9999_file/resume_202304.pdf)

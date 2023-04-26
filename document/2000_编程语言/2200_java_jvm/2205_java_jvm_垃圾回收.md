@@ -17,7 +17,7 @@ reference类型的数据中存储的数值代表着另一块内存的地址，�
 > 
 > 
 >  ThreadLocal静态内部类ThreadLocalMap中的Entry中的key就是一个弱引用
->  https://www.cnblogs.com/aspirant/p/8991010.html
+
 
 <br/>
 <hr/>

@@ -16,7 +16,6 @@ date: 2018-10-23 00:00:00
 ```
 
 ## springmvc执行原理
-![springmvc执行原理](../../../resource/img/260-1.png)
 * 核心前端控制器DispatcherServlet相当于一个中央处理器
 * 具体执行流程：用户发送请求--前端控制器（处理请求）--响应请求给用户
 	* 1）通过处理器映射器HandlerMapping获取handler和interceptor数组（HandlerExecutionChain）
