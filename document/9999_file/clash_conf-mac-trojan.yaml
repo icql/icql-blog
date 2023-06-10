@@ -3,8 +3,8 @@ mode: rule
 proxies:
   - name: "PROXY"
     type: trojan
-    server: server.icql.work
-    port: 443
+    server: vpn.icql.work
+    port: 20001
     password:
     udp: true
 
