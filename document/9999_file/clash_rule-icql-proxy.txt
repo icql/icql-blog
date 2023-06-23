@@ -3,6 +3,5 @@ payload:
   - '*.kasmweb.com'
   - '*.huobi.com'
   - '*.raycast.com'
-  - '*.bing.com'
   - '*.jazzqi.com'
   - '*.cloudflare.com'
