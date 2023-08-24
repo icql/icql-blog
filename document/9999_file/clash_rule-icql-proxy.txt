@@ -5,3 +5,4 @@ payload:
   - '*.raycast.com'
   - '*.jazzqi.com'
   - '*.cloudflare.com'
+  - '*.nnzipai.com'
