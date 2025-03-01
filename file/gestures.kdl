@@ -1,0 +1,27 @@
+// Swipe requires a direction and fingers field at least
+// direction can be one of "nw", "n", "ne", "w", "any", "e", "sw", "s", or "se"
+// fingers is the number of fingers used to trigger the action
+// start, update, and end are all optional. They are executed with `sh -c` and are executed when
+// the gesture is started, recieves an update event and ends.
+//
+// In all of the fields which execute a shell command, `delta_x`, `delta_y` and `scale` are replaced
+// with the delta in the x and y directions and the scale (movement farther apart or closer together)
+// of the gesture. If they are used for an action in which they do not make sense (e.g. using 
+// `scale` in the swipe gesture, 0.0 is used as the value.)
+//
+swipe direction="any" fingers=3 mouse-up-delay=500 acceleration=20 
+
+swipe direction="w" fingers=4 end="xdotool key alt+Right"
+swipe direction="e" fingers=4 end="xdotool key alt+Left"
+swipe direction="n" fingers=4 update="" start="" end="xdotool key super+s"
+swipe direction="s" fingers=4 update="" start="" end="xdotool key ctrl+w"
+
+// pinch direction can be "in" or "out". Other fields are the same as for
+// the swipe gesture
+//
+pinch direction="in" fingers=4 end="xdotool key Ctrl+minus"
+pinch direction="out" fingers=4 end="xdotool key Ctrl+plus"
+
+// Hold only has one action, rather than start, end and update, because it does not
+// make much sense to update it.
+// hold fingers=4 action="xdotool key Super_L"
